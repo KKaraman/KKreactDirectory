@@ -9,11 +9,7 @@ function EmployeeCard(props) {
         <img alt={props.name} src={props.image} />
       </div>
       <div className="content">
-        {/* the () allows you to only execute this when the button is clicked */}
-        <p onClick={() => props.showOnlyThisEmployee(props.id)}>
-          Show Only This Employee
-        </p>
-        <ul>
+                <ul>
           <li>
             <strong>Name:</strong> {props.name} {props.lastName}
           </li>
@@ -28,13 +24,17 @@ function EmployeeCard(props) {
           </li>
         </ul>
       </div>
-      <p onClick={() => props.removeEmployee(props.id)}>
+      {/* the () allows you to only execute this when the button is clicked */}
+      <p className="cardFunctions" onClick={() => props.showOnlyThisEmployee(props.id)}>
+          Show Only This Employee
+        </p>
+      <p className="cardFunctions" onClick={() => props.removeEmployee(props.id)}>
           Delete This Employee
       </p>
-      <p onClick={() => props.sortEmployees()}>
+      <p className="cardFunctions" onClick={() => props.sortEmployees()}>
           Sort the Employees
       </p>
-      <p onClick={() => props.filterNationalities(props.location)}>
+      <p className="cardFunctions" onClick={() => props.filterNationalities(props.location)}>
          Filter Nationalities
       </p>
     </div>

@@ -1,7 +1,7 @@
 .card {
   background: gold;
   border-radius: 2px;
-  height: 325px;
+  height: auto;
   margin: 1rem;
   position: relative;
   width: 325px;
@@ -16,7 +16,7 @@
   background: black;
 }
 .card > .img-container > img {
-  width: 60%
+  width: 80%;
 }
 
 .card > .content {
@@ -31,4 +31,10 @@
 
 .card > .content > ul > li {
   margin-top: 18px;
+}
+
+.cardFunctions{
+  text-align: center;
+  font-size: 10px;
+  color: navy;
 }

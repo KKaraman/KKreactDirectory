@@ -2,11 +2,12 @@
 import './App.css';
 import React from "react";
 // import components that we are using
-
+// import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import employees from "./employees.json";
+// import employees from "./employees.json";
 import EmployeeCard from "./components/EmployeeCard";
+import Axios from "axios";
 
 // app function and will return JSX;
 // this is the markup for the component
@@ -29,16 +30,27 @@ import EmployeeCard from "./components/EmployeeCard";
 //   //   </header>
 //   // </div>
 // );
-class App extends React.Component {
-  // Setting this.state.friends to the friends json array
-  state = {
-    // friends: friends
-    employees: employees
-    //this is the same as
-    // friends
-  };
 
-  // componentDidMount()
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    // Setting this.state.employees to the json array
+    this.state = {
+      employees: []
+    };
+  }
+
+  componentDidMount() {
+    Axios.get("https://randomuser.me/api/?results=10")
+      .then(res => {
+        const employees = res.data.results;
+        this.setState({ employees });
+        console.log("employees array " + employees);
+      });
+  }
+
 
   showOnlyThisEmployee = index => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -52,18 +64,18 @@ class App extends React.Component {
   removeEmployee = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     console.log("we are trying to delete user at index " + id);
-    const employees = this.state.employees.filter((employee,index) => index !== id);
+    const employees = this.state.employees.filter((employee, index) => index !== id);
     // Set this.state.friends equal to the new friends array
     this.setState({ employees });
   };
 
-  sortEmployees = () =>{
+  sortEmployees = () => {
     console.log("sorting employees by first name");
-    const employees = this.state.employees.sort(function(a,b){
-      if(a.name.first < b.name.first){
+    const employees = this.state.employees.sort(function (a, b) {
+      if (a.name.first < b.name.first) {
         return -1;
       }
-      if(a.name.first > b.name.first){
+      if (a.name.first > b.name.first) {
         return 1;
       }
       return 0;
@@ -75,12 +87,12 @@ class App extends React.Component {
 
   filterNationalities = nat => {
     console.log("filtering employees from the same nationality");
-    const employees = this.state.employees.filter((element)=>{
-     if(element.nat=== nat){
-       return true;
-     }else{
-       return false;
-     }
+    const employees = this.state.employees.filter((element) => {
+      if (element.nat === nat) {
+        return true;
+      } else {
+        return false;
+      }
     })
     console.log(employees);
     this.setState({ employees });
@@ -89,24 +101,27 @@ class App extends React.Component {
 
 
   render() {
+
+    // const { employees } = this.state;
+
     return (
       <div className="container">
-  
+
         <Wrapper>
           <Title>Employees List</Title>
-          {this.state.employees.map((employee,i) => (
+          {this.state.employees.map((employee, i) => (
             <EmployeeCard
               removeEmployee={this.removeEmployee}
-              showOnlyThisEmployee= {this.showOnlyThisEmployee}
-              sortEmployees = {this.sortEmployees}
-              filterNationalities = { this.filterNationalities}
-              id= {i}
-              name= {employee.name.first}
-              lastName = {employee.name.last}
-              image= {employee.picture.medium}
-              email= {employee.email}
-              phone = {employee.phone}
-              location = {employee.nat}
+              showOnlyThisEmployee={this.showOnlyThisEmployee}
+              sortEmployees={this.sortEmployees}
+              filterNationalities={this.filterNationalities}
+              id={i}
+              name={employee.name.first}
+              lastName={employee.name.last}
+              image={employee.picture.medium}
+              email={employee.email}
+              phone={employee.phone}
+              location={employee.nat}
             />
           ))}
         </Wrapper>
