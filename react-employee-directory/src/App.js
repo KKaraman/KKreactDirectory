@@ -38,27 +38,75 @@ class App extends React.Component {
     // friends
   };
 
-  removeEmployee = id => {
+  // componentDidMount()
+
+  showOnlyThisEmployee = index => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const employees = this.state.employees.filter(employee => employee.id !== id);
+    // const employees = this.state.employees.filter(employee => employee.id !== id);
+    const employees = this.state.employees.splice(index, 1);
+    console.log("we want to show only user number " + index);
     // Set this.state.friends equal to the new friends array
     this.setState({ employees });
   };
+
+  removeEmployee = id => {
+    // Filter this.state.friends for friends with an id not equal to the id being removed
+    console.log("we are trying to delete user at index " + id);
+    const employees = this.state.employees.filter((employee,index) => index !== id);
+    // Set this.state.friends equal to the new friends array
+    this.setState({ employees });
+  };
+
+  sortEmployees = () =>{
+    console.log("sorting employees by first name");
+    const employees = this.state.employees.sort(function(a,b){
+      if(a.name.first < b.name.first){
+        return -1;
+      }
+      if(a.name.first > b.name.first){
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(employees);
+    this.setState({ employees });
+  }
+
+  filterNationalities = nat => {
+    console.log("filtering employees from the same nationality");
+    const employees = this.state.employees.filter((element)=>{
+     if(element.nat=== nat){
+       return true;
+     }else{
+       return false;
+     }
+    })
+    console.log(employees);
+    this.setState({ employees });
+  }
+
+
+
   render() {
     return (
       <div className="container">
   
         <Wrapper>
           <Title>Employees List</Title>
-          {this.state.employees.map(employee => (
+          {this.state.employees.map((employee,i) => (
             <EmployeeCard
-              // removeEmployee={this.removeEmployee}
-              // id={employee.id}
-              key={employee.index}
-              // name={employee.first.name}
-              // image={employee.picture.thumbnail}
-              // occupation={friend.occupation}
-              // location={friend.location}
+              removeEmployee={this.removeEmployee}
+              showOnlyThisEmployee= {this.showOnlyThisEmployee}
+              sortEmployees = {this.sortEmployees}
+              filterNationalities = { this.filterNationalities}
+              id= {i}
+              name= {employee.name.first}
+              lastName = {employee.name.last}
+              image= {employee.picture.medium}
+              email= {employee.email}
+              phone = {employee.phone}
+              location = {employee.nat}
             />
           ))}
         </Wrapper>
