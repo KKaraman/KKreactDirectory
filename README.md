@@ -23,7 +23,7 @@ It is important to note that if you do the filter, it will show only those cards
 
 For more information please contact me using my [email](keremukaraman@gmail.com).
 
-The link for the budget tracker repo can be found [here](https://github.com/KKaraman/KKreactDirectory).
+The link for the react directory repo can be found [here](https://github.com/KKaraman/KKreactDirectory).
 
 If you liked this, you can see my other repositories at my [GitHub profile](https://github.com/KKaraman).
 
