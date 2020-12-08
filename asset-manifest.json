@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/KKreactDirectory/static/css/main.a9dc81e5.chunk.css",
+    "main.js": "/KKreactDirectory/static/js/main.b0575616.chunk.js",
+    "main.js.map": "/KKreactDirectory/static/js/main.b0575616.chunk.js.map",
+    "runtime-main.js": "/KKreactDirectory/static/js/runtime-main.d82f3268.js",
+    "runtime-main.js.map": "/KKreactDirectory/static/js/runtime-main.d82f3268.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/KKreactDirectory/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.b1223b06.chunk.js": "/KKreactDirectory/static/js/2.b1223b06.chunk.js",
+    "static/js/2.b1223b06.chunk.js.map": "/KKreactDirectory/static/js/2.b1223b06.chunk.js.map",
+    "static/js/3.837738e1.chunk.js": "/KKreactDirectory/static/js/3.837738e1.chunk.js",
+    "static/js/3.837738e1.chunk.js.map": "/KKreactDirectory/static/js/3.837738e1.chunk.js.map",
+    "index.html": "/KKreactDirectory/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/KKreactDirectory/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.a9dc81e5.chunk.css.map": "/KKreactDirectory/static/css/main.a9dc81e5.chunk.css.map",
+    "static/js/2.b1223b06.chunk.js.LICENSE.txt": "/KKreactDirectory/static/js/2.b1223b06.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d82f3268.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.b1223b06.chunk.js",
+    "static/css/main.a9dc81e5.chunk.css",
+    "static/js/main.b0575616.chunk.js"
+  ]
+}
